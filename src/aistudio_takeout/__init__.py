@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-import sys, json, re
+import sys
+import json
+import re
 from pathlib import Path
 from datetime import datetime
 
@@ -45,7 +47,9 @@ def main():
         date_prefix = mtime.strftime("%Y-%m-%d")
 
         title = f.stem
-        md = [f"---\nprovider: aistudio\ncreated: {created}\nmodel: {model}\n---\n\n# {title}\n"]
+        md = [
+            f"---\nprovider: aistudio\ncreated: {created}\nmodel: {model}\n---\n\n# {title}\n"
+        ]
 
         for chunk in chunks:
             role = chunk.get("role", "unknown")
@@ -54,8 +58,12 @@ def main():
                 text = chunk["parts"][0].get("text", "") if chunk["parts"] else ""
             md.append(f"\n## {'User' if role == 'user' else 'Model'}\n\n{text}\n")
 
-        safe = re.sub(r"[^a-zA-Z0-9\u4e00-\u9fff]+", "-", title).strip("-") or "untitled"
-        (out / f"{date_prefix}-{safe}.chat.md").write_text("".join(md), encoding="utf-8")
+        safe = (
+            re.sub(r"[^a-zA-Z0-9\u4e00-\u9fff]+", "-", title).strip("-") or "untitled"
+        )
+        (out / f"{date_prefix}-{safe}.chat.md").write_text(
+            "".join(md), encoding="utf-8"
+        )
         n += 1
         print(f"✓ {date_prefix}-{safe}.chat.md")
 
