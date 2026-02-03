@@ -1,0 +1,17 @@
+[project]
+name = "aistudio-takeout"
+version = "0.1.0"
+description = "Convert Google AI Studio chats to Markdown"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = []
+
+[project.scripts]
+aistudio-takeout = "aistudio_takeout:main"
+
+[project.urls]
+Repository = "https://github.com/mefengl/aistudio-takeout"
+
+[build-system]
+requires = ["uv_build>=0.9.9,<0.10.0"]
+build-backend = "uv_build"
