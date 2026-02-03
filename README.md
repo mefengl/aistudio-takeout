@@ -5,7 +5,7 @@ Convert Google AI Studio chats to Markdown.
 ## Install
 
 ```bash
-uv tool install aistudio-takeout
+pip install aistudio-takeout
 ```
 
 ## Usage
@@ -18,8 +18,8 @@ aistudio-takeout "Google AI Studio" output    # Creates output/*.chat.md
 Output:
 ```
 aistudio/
-├── 2025-01-15-乔治霍兹的轻量化栈.chat.md
-├── 2025-01-20-founder-mode.chat.md
+├── 2025-01-15-chat-title.chat.md
+├── 2025-01-20-another-chat.chat.md
 └── ...
 ```
 
